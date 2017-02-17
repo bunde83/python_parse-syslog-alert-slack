@@ -13,4 +13,4 @@ TO DO:
 
 2. Additional alert options (XMPP, Email, etc).
 
-3. Add exception function to exclude unwanted lines,=.
+3. Add exception function to exclude unwanted lines.
