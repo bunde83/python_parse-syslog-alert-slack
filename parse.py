@@ -28,9 +28,14 @@ def process_matches(matchtext):
           headers={'Content-Type': 'application/json'}
 )
 
-#List log keywords/phrases 
+#List log line matching keywords/phrases (comment out if you wish to specify a file for matches per below)
 list_of_matches = ['BGP-5-ADJCHANGE', 'SAMPLE']            #LIST MATCH KEYWORDS/PHRASES
 matches = [process_matches(string_match) for string_match in list_of_matches]
+
+#uncomment if you wish to use a file to specify matches, refer to matches.txt sample for example
+#with open ("matches.txt", "r") as matchfile:
+#    list_of_matches=matchfile.read().splitlines()
+#    matches = [process_matches(string_match) for string_match in list_of_matches]
 
 #Prime matches
 for m in matches:
