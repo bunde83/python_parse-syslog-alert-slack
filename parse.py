@@ -2,7 +2,7 @@ import time
 import json
 import requests
 
-#Define tail follow loop function of network.log
+#Define tail follow loop function of log file
 def tail(f):
     f.seek(0, 2)
 
