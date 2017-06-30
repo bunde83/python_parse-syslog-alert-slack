@@ -1,6 +1,7 @@
 import time
 import json
 import requests
+import re
 
 #Define tail follow loop function of log file
 def tail(f):
@@ -19,7 +20,11 @@ def tail(f):
 def process_matches(matchtext):
     while True:
         line = (yield)
-        if matchtext in line:
+#######EXCEPTIONS (NO ALERTS)
+        if re.match("(.*)(EXAMPLEXCEPTION1||EXAMPLEXCEPTION2|EXAMPLEXCEPTION3)(.*)", line):
+          pass
+#######MATCHES (ALERTS)
+        elif matchtext in line:
           print line
           webhook_url = 'https://hooks.slack.com/services/XXXXXX/YYYYYYY/ZZZZZZZ'    #YOUR SLACK WEBHOOK URL
           slack_data = {'text': '"' + line + '"'}
